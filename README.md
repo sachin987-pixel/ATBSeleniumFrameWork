@@ -21,4 +21,5 @@ SonarLint, Java > 22
 
 Run Local and on Selenoid Integration.
 
-         
+
+mvn test -Dsurefire.suiteXmlFiles=testng.xml

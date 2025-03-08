@@ -3,6 +3,7 @@ package Ecommerce.base;
 import Ecommerce.utils.PropertiesReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -25,10 +26,26 @@ public class CommonToAllPage {
 
         }
 
+    public void openFbUrl() {
+        getDriver().get(PropertiesReader.readKey("url1"));
+    }
+
+     public void OpenModelUrl(){
+          getDriver().get(PropertiesReader.readKey("url2"));
+
+
+     }
+
+     public void OpenNauakri(){
+          getDriver().get(PropertiesReader.readKey("url3"));
+
+     }
+
+
         public void custom_wait(){
 
             try {
-                Thread.sleep(3000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -43,6 +60,11 @@ public class CommonToAllPage {
     public void clickElement(WebElement by) {
         by.click();
 
+    }
+
+    public void moveToElement(By by) {
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(getDriver().findElement(by)).perform();
     }
 
     public void enterInput(By by, String key) {
